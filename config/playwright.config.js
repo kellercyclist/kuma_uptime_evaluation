@@ -41,15 +41,25 @@ export default defineConfig({
     // Configure projects for major browsers.
     projects: [
         {
-            name: "run-once setup",
-            testMatch: /setup-process\.once\.js/,
-            use: { ...devices["Desktop Chrome"] },
-        },
-        {
-            name: "specs",
-            use: { ...devices["Desktop Chrome"] },
-            dependencies: ["run-once setup"],
-        },
+    name: "run-once setup",
+    testMatch: /setup-process\.once\.js/,
+    use: { ...devices["Desktop Chrome"], channel: "chrome" },
+},
+{
+    name: "specs",
+    use: { ...devices["Desktop Chrome"], channel: "chrome" },
+    dependencies: ["run-once setup"],
+},
+        // {
+        //     name: "run-once setup",
+        //     testMatch: /setup-process\.once\.js/,
+        //     use: { ...devices["Desktop Chrome"] },
+        // },
+        // {
+        //     name: "specs",
+        //     use: { ...devices["Desktop Chrome"] },
+        //     dependencies: ["run-once setup"],
+        // },
         /*
         {
             name: "firefox",
